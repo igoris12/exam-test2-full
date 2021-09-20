@@ -15,6 +15,11 @@ class CreateBettersTable extends Migration
     {
         Schema::create('betters', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->string('surname', 150);
+            $table->integer('bet');
+            $table->unsignedBigInteger('horse_id');
+            $table->foreign('horse_id')->references('id')->on('horses');
             $table->timestamps();
         });
     }

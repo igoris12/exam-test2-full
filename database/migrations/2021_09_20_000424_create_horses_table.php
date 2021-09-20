@@ -15,6 +15,10 @@ class CreateHorsesTable extends Migration
     {
         Schema::create('horses', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 100);
+            $table->integer('runs');
+            $table->integer('wins');
+            $table->text('about');
             $table->timestamps();
         });
     }
