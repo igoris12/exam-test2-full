@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Better extends Model
 {
     use HasFactory;
+
+         public function getHorse()
+   {
+       return $this->belongsTo('App\Models\Horse', 'horse_id', 'id');
+   }
 }

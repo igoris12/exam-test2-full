@@ -16,7 +16,7 @@
                                         <option value="0" disabled selected>Select horse</option>
                                         @foreach ($horses as $horse)
                                             <option value="{{ $horse->id }}" @if ($horse_id == $horse->id) selected @endif>
-                                                {{ $horse->title }}
+                                                {{ $horse->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -45,7 +45,8 @@
                                                 <p><b>Lastname:</b> <i>{{ $better->surname }}</i> </p>
                                             </div>
                                             <div class="item">
-                                                {{-- <p><b>Reservoir: </b>{{ $better->getReservoir->title }}</p> --}}
+
+                                                <p><b>Horse: </b>{{ $better->getHorse->name }}</p>
                                             </div>
                                             <div class="item">
                                                 <p><b>Bet: </b>{{ $better->bet }} $.</p>

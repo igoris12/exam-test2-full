@@ -5,50 +5,35 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Edit member</div>
+                    <div class="card-header">Edit better</div>
                     <div class="card-body">
 
                         <div class="block__form">
-                            <form method="POST" action="{{ route('member.update', [$member]) }}">
+                            <form method="POST" action="{{ route('better.update', [$better]) }}">
                                 <div class="form-group">
                                     <label class="form-label">Name</label>
-                                    <input class="form-control" type="text" name="member_name"
-                                        value="{{ old('member_name', $member->name) }}">
+                                    <input class="form-control" type="text" name="better_name"
+                                        value="{{ old('better_name', $better->name) }}">
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label">Surname</label>
-                                    <input class="form-control" type="text" name="member_surname"
-                                        value="{{ old('member_surname', $member->surname) }}">
+                                    <input class="form-control" type="text" name="better_surname"
+                                        value="{{ old('better_surname', $better->surname) }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label">Live</label>
-                                    <input class="form-control" type="text" name="member_live"
-                                        value="{{ old('member_live', $member->live) }}">
+                                    <label class="form-label">Bet</label>
+                                    <input class="form-control" type="text" name="better_bet"
+                                        value="{{ old('better_bet', $better->bet) }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label">Experience</label>
-                                    <input class="form-control" type="text" name="member_experience"
-                                        value="{{ old('member_experience', $member->experience) }}">
-
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class="form-label">Registered</label>
-                                    <input class="form-control" type="text" name="member_registered"
-                                        value="{{ old('member_registered', $member->registered) }}">
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label class="form-label">Reservoir</label>
-                                    <select name="reservoir_id">
-                                        @foreach ($reservoirs as $reservoir)
-                                            <option value="{{ $reservoir->id }}" @if (old('reservoir_id', $member->reservoir_id) == $reservoir->id) selected @endif>
-                                                {{ $reservoir->title }}
+                                    <label class="form-label">Horse</label>
+                                    <select name="horse_id">
+                                        @foreach ($horses as $horse)
+                                            <option value="{{ $horse->id }}" @if (old('horse_id', $better->horse_id) == $horse->id) selected @endif>
+                                                {{ $horse->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -64,4 +49,4 @@
     </div>
 @endsection
 
-@section('title') Edit member @endsection
+@section('title') Edit better @endsection
