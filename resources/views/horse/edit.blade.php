@@ -1,51 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-   <div class="row justify-content-center">
-       <div class="col-md-8">
-           <div class="card">
-               <div class="card-header">Edit reservoirs</div>
-                <div class="card-body">   
-                    <div class="block__form">
-                    <form method="POST" action="{{route('reservoir.update',[$reservoir])}}">
-                        <div class="form-group">
-                            <label class="form-label">Title</label>
-                            <input class="form-control" 
-                            type="text" 
-                            name="reservoir_title" 
-                            value="{{old('reservoir_name',$reservoir->title)}}">
-                        </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Edit horses</div>
+                    <div class="card-body">
+                        <div class="block__form">
+                            <form method="POST" action="{{ route('horse.update', [$horse]) }}">
+                                <div class="form-group">
+                                    <label class="form-label">Name</label>
+                                    <input class="form-control" type="text" name="horse_name"
+                                        value="{{ old('horse_name', $horse->name) }}">
+                                </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Area</label>
-                            <input class="form-control" 
-                            type="text" 
-                            name="reservoir_area" 
-                            value="{{old('reservoir_birth',$reservoir->area)}}">
-                        </div>
+                                <div class="form-group">
+                                    <label class="form-label">Runs</label>
+                                    <input class="form-control" type="text" name="horse_runs"
+                                        value="{{ old('horse_runs', $horse->runs) }}">
+                                </div>
 
-                        <div class="form-group">
-                            <label class="form-label">about</label>
-                            <textarea id="summernote"  name="reservoir_about">
-                                {{old('reservoir_about',$reservoir->about)}}
-                            </textarea>
-                        </div>
 
-                        @csrf
-                        <button type="submit" class="btn btn-info">Edit</button>
-                    </form> 
+                                <div class="form-group">
+                                    <label class="form-label">Wins</label>
+                                    <input class="form-control" type="text" name="horse_wins"
+                                        value="{{ old('horse_wins', $horse->wins) }}">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">About</label>
+                                    <textarea id="summernote" name="horse_about">
+                                                    {{ old('horse_about', $horse->about) }}
+                                                </textarea>
+                                </div>
+
+                                @csrf
+                                <button type="submit" class="btn btn-info">Edit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-           </div>
-       </div>
-   </div>
-</div>
-<script>
-$(document).ready(function() {
-   $('#summernote').summernote();
- });
-</script>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#summernote').summernote();
+            });
+        </script>
 
-@endsection
+    @endsection
 
-@section('title') Edit reservoirs @endsection
+    @section('title') Edit horses @endsection

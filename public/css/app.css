@@ -10002,3 +10002,55 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.card {
+  font-weight: bold;
+  font-size: larger;
+}
+.card fieldset {
+  margin: 15px;
+  border: 2px solid black;
+  padding: 12px;
+  display: flex;
+}
+.card fieldset legend {
+  color: black;
+  font-size: 25px;
+  display: inline-block;
+  padding: 6px;
+  text-align: center;
+  width: auto;
+}
+.card fieldset .block {
+  margin: 7px;
+}
+
+.listBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listBlock__content {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+}
+.listBlock__buttons {
+  display: flex;
+}
+.listBlock__buttons .btn {
+  margin: 0px 5px;
+}
+
+@media (max-width: 600px) {
+  .listBlock {
+    flex-direction: column;
+  }
+  .listBlock__content {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+  .listBlock__content .item {
+    text-align: center;
+  }
+}
