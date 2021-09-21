@@ -27,10 +27,10 @@ class BetterController extends Controller
         if ($request->filter && 'horse' == $request->filter) { 
              $betters = Better::where('horse_id', $request->horse_id)->paginate(self::RESULTS_IN_PAGE)->withQueryString();
         }else {
-            $betters = Better::orderBy('surname')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+            $betters = Better::orderBy('bet', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
         }
         
-        $horses = Horse::orderBy('name')->get();
+        $horses = Horse::orderBy('name', 'desc')->get();
         return view('better.index', ['betters' => $betters,
          'horses' => $horses,
         'horse_id' => $request->horse_id ?? '0'
@@ -46,7 +46,7 @@ class BetterController extends Controller
      */
     public function create()
     {
-        $horses = Horse::orderBy('name')->get();
+        $horses = Horse::orderBy('name', 'desc')->get();
         return view('better.create', ['horses' => $horses]);
 
     }
