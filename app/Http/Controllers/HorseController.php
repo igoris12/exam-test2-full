@@ -8,7 +8,7 @@ use Validator;
 
 class HorseController extends Controller
 {
-    const RESULTS_IN_PAGE = 3;
+    const RESULTS_IN_PAGE = 5;
 
     public function __construct()
     {
@@ -44,12 +44,12 @@ class HorseController extends Controller
      */
     public function store(Request $request)
     {   
-        $runs = $request->horse_runs;
+
         $validator = Validator::make($request->all(),
             [
                 'horse_name' => ['required', 'min:2', 'max:200'],
                 'horse_runs' => ['required', 'integer', 'min:0'],
-                'horse_wins' => ['required', 'integer', 'min:0', "max: $runs "],
+                'horse_wins' => ['required', 'integer', 'min:0', 'lte:horse_runs'],
                 'horse_about' => ['required'],
             ]
 
@@ -103,12 +103,11 @@ class HorseController extends Controller
     public function update(Request $request, horse $horse)
     {
 
-        $runs = $request->horse_runs;
         $validator = Validator::make($request->all(),
             [
                 'horse_name' => ['required', 'min:2', 'max:200'],
                 'horse_runs' => ['required', 'integer', 'min:0'],
-                'horse_wins' => ['required', 'integer', 'min:0', "max: $runs "],
+                'horse_wins' => ['required', 'integer', 'min:0', 'lte:horse_runs'],
                 'horse_about' => ['required'],
             ]
 
