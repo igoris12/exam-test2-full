@@ -40,7 +40,7 @@
                                 </div>
 
                                 @csrf
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-secondary">Add</button>
                             </form>
                         </div>
                     </div>

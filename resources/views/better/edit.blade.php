@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 @csrf
-                                <button type="submit" class="btn btn-success">Edit</button>
+                                <button type="submit" class="btn btn-secondary">Edit</button>
                             </form>
                         </div>
                     </div>

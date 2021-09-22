@@ -30,11 +30,11 @@
                                 <div class="form-group">
                                     <label class="form-label">About</label>
                                     <textarea id="summernote" name="horse_about">
-                                                {{ old('horse_about') }}
-                                        </textarea>
+                                                        {{ old('horse_about') }}
+                                                </textarea>
                                 </div>
                                 @csrf
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-secondary">Add</button>
                             </form>
                         </div>
                     </div>

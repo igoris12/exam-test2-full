@@ -11,9 +11,9 @@
                         <fieldset>
                             <legend>Sort</legend>
                             <div class="block">
-                                <button type="submit" class="btn btn-info" name="sort" value="name">Name</button>
-                                <button type="submit" class="btn btn-info" name="sort" value="surname">Surname</button>
-                                <button type="submit" class="btn btn-info" name="sort" value="bet">Bet</button>
+                                <button type="submit" class="btn btn-secondary" name="sort" value="name">Name</button>
+                                <button type="submit" class="btn btn-secondary" name="sort" value="surname">Surname</button>
+                                <button type="submit" class="btn btn-secondary" name="sort" value="bet">Bet</button>
                             </div>
                             <div class="block">
                                 <div class="form-check">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="block">
 
-                                <a href="{{ route('better.index') }}" class="btn btn-warning"><i
+                                <a href="{{ route('better.index') }}" class="btn btn-secondary"><i
                                         class="fas fa-redo"></i></a>
                             </div>
                         </fieldset>
@@ -56,8 +56,8 @@
                                 </div>
                             </div>
                             <div class="block">
-                                <button type="submit" class="btn btn-info" name="filter" value="horse">Filter</button>
-                                <a href="{{ route('better.index') }}" class="btn btn-danger">
+                                <button type="submit" class="btn btn-secondary" name="filter" value="horse">Filter</button>
+                                <a href="{{ route('better.index') }}" class="btn btn-secondary">
                                     <i class="fas fa-redo"></i></a>
                             </div>
                         </fieldset>
@@ -82,9 +82,9 @@
                                         </details>
                                         <div class="listBlock__buttons">
                                             <a href="{{ route('better.edit', [$better]) }}"
-                                                class="btn btn-info">Edit</a>
+                                                class="btn btn-secondary">Edit</a>
                                             <form method="POST" action="{{ route('better.destroy', $better) }}">
-                                                <button class="btn btn-danger" type="submit"><i
+                                                <button class="btn btn-secondary" type="submit"><i
                                                         class="fas fa-trash-alt"></i></button>
                                                 @csrf
                                             </form>

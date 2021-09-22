@@ -29,9 +29,10 @@
                                             </div>
                                         </details>
                                         <div class="listBlock__buttons">
-                                            <a href="{{ route('horse.edit', [$horse]) }}" class="btn btn-info">Edit</a>
+                                            <a href="{{ route('horse.edit', [$horse]) }}"
+                                                class="btn btn-secondary">Edit</a>
                                             <form method="POST" action="{{ route('horse.destroy', $horse) }}">
-                                                <button class="btn btn-danger" type="submit">delete</button>
+                                                <button class="btn btn-secondary" type="submit">delete</button>
                                                 @csrf
                                             </form>
                                         </div>
