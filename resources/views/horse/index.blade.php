@@ -13,21 +13,21 @@
                             @foreach ($horses as $horse)
                                 <li class="list-group-item">
                                     <div class="listBlock">
-                                        <div class="listBlock__content">
-                                            <h4>{{ $horse->name }}</h4>
-                                        </div>
+                                        <details>
+                                            <summary>
+                                                {{ $horse->name }}
+                                            </summary>
+                                            <div class="listBlock__content">
+                                                <h4><b>Runs:</b> {{ $horse->runs }}</h4>
+                                            </div>
+                                            <div class="listBlock__content">
+                                                <h4><b>Wins:</b> {{ $horse->wins }}</h4>
+                                            </div>
 
-                                        <div class="listBlock__content">
-                                            <h4>Runs: {{ $horse->runs }}</h4>
-                                        </div>
-                                        <div class="listBlock__content">
-                                            <h4>Wins: {{ $horse->wins }}</h4>
-                                        </div>
-
-                                        <div class="listBlock__content">
-                                            <h4>about: {{ $horse->about }}</h4>
-                                        </div>
-
+                                            <div class="listBlock__content">
+                                                <h4><b>About:</b> {{ $horse->about }}</h4>
+                                            </div>
+                                        </details>
                                         <div class="listBlock__buttons">
                                             <a href="{{ route('horse.edit', [$horse]) }}" class="btn btn-info">Edit</a>
                                             <form method="POST" action="{{ route('horse.destroy', $horse) }}">

@@ -24,15 +24,41 @@ class BetterController extends Controller
      */
     public function index(Request $request)
     {   
-        if ($request->filter && 'horse' == $request->filter) { 
-             $betters = Better::where('horse_id', $request->horse_id)->paginate(self::RESULTS_IN_PAGE)->withQueryString();
-        }else {
-            $betters = Better::orderBy('bet', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
-        }
+
+            if ($request->sort) {
+                if ('name' == $request->sort && 'asc' == $request->sort_dir) {
+                    $betters = Better::orderBy('name')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else if ('name' == $request->sort && 'desc' == $request->sort_dir) {
+                    $betters = Better::orderBy('name', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else if ('surname' == $request->sort && 'asc' == $request->sort_dir) {
+                    $betters = Better::orderBy('surname')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else if ('surname' == $request->sort && 'desc' == $request->sort_dir) {
+                    $betters = Better::orderBy('surname', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else if ('bet' == $request->sort && 'asc' == $request->sort_dir) {
+                    $betters = Better::orderBy('bet')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else if ('bet' == $request->sort && 'desc' == $request->sort_dir) {
+                    $betters = Better::orderBy('bet', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+                else {
+                    $betters = Better::paginate(self::RESULTS_IN_PAGE)->withQueryString();
+                }
+
+            }
+            else if ($request->filter && 'horse' == $request->filter) { 
+                $betters = Better::where('horse_id', $request->horse_id)->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+            }else {
+                $betters = Better::orderBy('bet', 'desc')->paginate(self::RESULTS_IN_PAGE)->withQueryString();
+            }
         
         $horses = Horse::orderBy('name', 'desc')->get();
         return view('better.index', ['betters' => $betters,
          'horses' => $horses,
+         'sortDirection' => $request->sort_dir ?? 'asc',
         'horse_id' => $request->horse_id ?? '0'
         ]
     );

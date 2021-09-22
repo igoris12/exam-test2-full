@@ -9,6 +9,38 @@
 
                     <form action="{{ route('better.index') }}" method="get">
                         <fieldset>
+                            <legend>Sort</legend>
+                            <div class="block">
+                                <button type="submit" class="btn btn-info" name="sort" value="name">Name</button>
+                                <button type="submit" class="btn btn-info" name="sort" value="surname">Surname</button>
+                                <button type="submit" class="btn btn-info" name="sort" value="bet">Bet</button>
+                            </div>
+                            <div class="block">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort_dir" id="_1" value="asc"
+                                        @if ('desc' != $sortDirection) checked @endif>
+                                    <label class="form-check-label" for="_1">
+                                        ASC
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="sort_dir" id="_2" value="desc"
+                                        @if ('desc' == $sortDirection) checked @endif>
+                                    <label class="form-check-label" for="_2">
+                                        DESC
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="block">
+
+                                <a href="{{ route('better.index') }}" class="btn btn-warning"><i
+                                        class="fas fa-redo"></i></a>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <form action="{{ route('better.index') }}" method="get">
+                        <fieldset>
                             <legend>Filter</legend>
                             <div class="block">
                                 <div class="form-group">
@@ -32,27 +64,22 @@
                     </form>
                     <div class="card-body">
                         <div class="mt-3">{{ $betters->links() }}</div>
-
                         <ul class="list-group">
                             @foreach ($betters as $better)
                                 <li class="list-group-item">
                                     <div class="listBlock">
-                                        <div class="listBlock__content">
-                                            <div class="item">
-                                                <p><b>Name:</b> <i>{{ $better->name }}</i> </p>
-                                            </div>
-                                            <div class="item">
-                                                <p><b>Lastname:</b> <i>{{ $better->surname }}</i> </p>
-                                            </div>
-                                            <div class="item">
+                                        <details>
+                                            <summary>{{ $better->name }} {{ $better->surname }}</summary>
 
-                                                <p><b>Horse: </b>{{ $better->getHorse->name }}</p>
+                                            <div class="listBlock__content">
+                                                <p>Horse: {{ $better->getHorse->name }}</p>
                                             </div>
-                                            <div class="item">
+
+                                            <div class="listBlock__content">
                                                 <p><b>Bet: </b>{{ $better->bet }} $.</p>
                                             </div>
-                                        </div>
 
+                                        </details>
                                         <div class="listBlock__buttons">
                                             <a href="{{ route('better.edit', [$better]) }}"
                                                 class="btn btn-info">Edit</a>
