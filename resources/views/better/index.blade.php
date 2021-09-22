@@ -72,7 +72,7 @@
                                             <summary>{{ $better->name }} {{ $better->surname }}</summary>
 
                                             <div class="listBlock__content">
-                                                <p>Horse: {{ $better->getHorse->name }}</p>
+                                                <p><b> Horse: </b> {{ $better->getHorse->name }}</p>
                                             </div>
 
                                             <div class="listBlock__content">
