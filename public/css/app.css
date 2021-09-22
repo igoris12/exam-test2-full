@@ -10083,6 +10083,7 @@ h3 {
 .pb-4 .card .pagination .page-link,
 .py-4 .card .pagination .page-link {
   background-color: #7e7b7b;
+  color: white;
 }
 .pb-4 .card form,
 .py-4 .card form {

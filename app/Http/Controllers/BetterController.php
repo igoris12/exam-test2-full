@@ -9,7 +9,7 @@ use Validator;
 
 class BetterController extends Controller
 {
-   const RESULTS_IN_PAGE = 5;
+   const RESULTS_IN_PAGE = 10;
 
     public function __construct()
     {
