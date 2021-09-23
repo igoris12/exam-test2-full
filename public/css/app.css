@@ -10079,6 +10079,7 @@ h3 {
 .py-4 .card {
   border: 1px solid #5d5555;
   box-shadow: 1px 3px 5px #5d5555;
+  margin-bottom: 150px;
 }
 .pb-4 .card .pagination .page-link,
 .py-4 .card .pagination .page-link {

@@ -70,6 +70,7 @@
 .pb-4,
 .py-4 {
     background-color: rgb(182, 169, 169);
+
     .card-header {
         color: white;
         background: rgb(93, 85, 85);
@@ -82,6 +83,7 @@
     .card {
         border: 1px solid rgba(93, 85, 85, 1);
         box-shadow: 1px 3px 5px rgba(93, 85, 85, 1);
+        margin-bottom: 150px;
         .pagination {
             .page-link {
                 background-color: rgb(126, 123, 123);
